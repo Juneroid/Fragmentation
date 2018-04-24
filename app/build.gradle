@@ -13,15 +13,13 @@ static def gitLatestTag() {
 android {
     compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion rootProject.buildToolsVersion
-
     defaultConfig {
-        applicationId "me.yokeyword.sample"
+        applicationId 'top.irunc.frame'
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName gitLatestTag()
     }
-
     signingConfigs {
         releaseConfig {
             storeFile file("./fragmentation.jks")
@@ -30,7 +28,6 @@ android {
             keyPassword System.getenv("ALIAS_PASS")
         }
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -40,14 +37,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-
     android.applicationVariants.all { variant ->
         variant.outputs.all {
             if (variant.buildType.name == 'release') {
                 outputFileName = "fragmentation.apk"
             }
         }
+    }
+    productFlavors {
     }
 }
 
