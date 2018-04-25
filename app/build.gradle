@@ -51,6 +51,8 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+    compile 'com.github.demoNo:AutoScrollViewPager:v1.0.2'
     compile "com.android.support:appcompat-v7:$rootProject.v4Version"
     compile "com.android.support:design:$rootProject.v4Version"
     compile "com.android.support:cardview-v7:$rootProject.v4Version"
@@ -61,5 +63,10 @@ dependencies {
     compile project(':eventbus_activity_scope')
     compile 'org.greenrobot:eventbus:3.0.0'
     //    apt 'org.greenrobot:eventbus-annotation-processor:3.0.1'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.squareup.picasso:picasso:2.3.2'
+    compile files('libs/okhttp-3.2.0.jar')
+    compile files('libs/okio-1.6.0.jar')
+    compile project(path: ':gridviewimage')
 }
 
