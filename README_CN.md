@@ -8,24 +8,8 @@ A powerful library that manage Fragment for Android!
 
 为"单Activity ＋ 多Fragment","多模块Activity + 多Fragment"架构而生，简化开发，轻松解决动画、嵌套、事务相关等问题。
 
-![](/gif/logo.png)
-
-
-为了更好的使用和了解该库，推荐阅读下面的文章:
-
-[Fragment全解析系列（一）：那些年踩过的坑](http://www.jianshu.com/p/d9143a92ad94)
-
-[Fragment全解析系列（二）：正确的使用姿势](http://www.jianshu.com/p/fd71d65f0ec6)
-
-
 # Demo演示：
 均为单Activity + 多Fragment，第一个为简单流式demo，第二个为仿微信交互的demo(全页面支持滑动退出)，第三个为仿知乎交互的复杂嵌套demo
-
-## [下载APK](https://www.pgyer.com/fragmentation)
-
-
-<img src="/gif/demo1.gif" width="280px"/> <img src="/gif/demo2.gif" width="280px"/>
- <img src="/gif/demo3.gif" width="280px"/>
 
 # 特性
 
