@@ -8,10 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import top.irunc.frame.R;
@@ -24,7 +26,7 @@ import top.irunc.frame.R;
 public  class GridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener, View.OnLongClickListener {
 
     private Context mContext;
-    private List<Meizi> datas;
+    private ArrayList<Meizi> datas;
 
     public static interface OnRecyclerViewItemClickListener {
         void onItemClick(View view);
@@ -38,11 +40,15 @@ public  class GridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
 
-    public GridAdapter(Context context, List<Meizi> datas) {
+    public GridAdapter(Context context, ArrayList<Meizi> data) {
         mContext=context;
-        this.datas=datas;
+        this.datas=data;
     }
 
+    public void setDatas(ArrayList<Meizi> data)
+    {
+        this.datas = data;
+    }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
@@ -66,9 +72,20 @@ public  class GridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         if(holder instanceof MyViewHolder){
-            Picasso.with(mContext).load(datas.get(position).getUrl()).into(((MyViewHolder) holder).iv);
+            Picasso.with(mContext).load(datas.get(position).getUrl()).into(((MyViewHolder) holder).iv,
+                    new com.squareup.picasso.Callback() {
+                        @Override
+                        public void onSuccess() {
+                            ((MyViewHolder) holder).pb.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        public void onError() {
+                            ((MyViewHolder) holder).pb.setVisibility(View.GONE);
+                        }
+                    });
         }else if(holder instanceof MyViewHolder2){
             ((MyViewHolder2) holder).tv.setText(datas.get(position).getPage()+"页");
         }
@@ -113,11 +130,13 @@ public  class GridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     class MyViewHolder extends RecyclerView.ViewHolder
     {
         private ImageView iv;
+        private ProgressBar pb;
 
         public MyViewHolder(View view)
         {
             super(view);
             iv = (ImageView) view.findViewById(R.id.iv);
+            pb = (ProgressBar) view.findViewById(R.id.progressBar2);
         }
     }
     class MyViewHolder2 extends RecyclerView.ViewHolder

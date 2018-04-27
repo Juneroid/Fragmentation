@@ -21,6 +21,7 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import top.irunc.frame.R;
@@ -30,7 +31,7 @@ public class GridActivity extends AppCompatActivity {
 
     private static RecyclerView recyclerview;
     private GridAdapter mAdapter;
-    private List<Meizi> meizis;
+    private ArrayList<Meizi> meizis;
     private GridLayoutManager mLayoutManager;
     private int lastVisibleItem;
     private int page=1;
