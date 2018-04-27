@@ -16,11 +16,6 @@ It is designed for "Single Activity + Multi-Fragments" and "Multi-FragmentActivi
 ## Demo
 The first demo shows the basic usage of the library. The second one shows the way to implement an app which is similar to Instagram. Complicated nested fragments' usage demo are also showed.
 
-## [Download APK](https://www.pgyer.com/fragmentation)
-
-<img src="/gif/demo1.gif" width="280px"/> <img src="/gif/demo2.gif" width="280px"/>
- <img src="/gif/demo3.gif" width="280px"/>
-
 ## Feature
 
 **1. Develop complicated nested fragment app rapidly**
